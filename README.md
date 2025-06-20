@@ -82,7 +82,9 @@ The partial success of ResNet18 model shows that using SimCLR with 120 training 
 ## Contributors
 
 This project was made by me and my teammates. Here are their student number:
+
 Funda Semiz: 220717039
+
 İlayda Bozkurt: 220717037
 
 ## Credits
