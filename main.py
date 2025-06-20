@@ -24,7 +24,7 @@ def reproducibility(config):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-# a function to get images form folder
+# A function to get images form folder
 def get_data_from_path(folder_path, img_size, batch_size):
     transformer = Utility(img_size)
     dataset = CustomDataset(folder_path=folder_path, transform=transformer)
