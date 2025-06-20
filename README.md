@@ -79,6 +79,12 @@ As we can see in the graphs and images, more complicated models like DenseNet121
 The main reason for that can be simplified to having more layers therefore more overfitting during the training process.
 The partial success of ResNet18 model shows that using SimCLR with 120 training images plus training a classifier fit to our classes with 10 images per class can be useful but there is still room for more improvement.
 
+## Contributors
+
+This project was made by me and my teammates. Here are their student number:
+Funda Semiz: 220717039
+İlayda Bozkurt: 220717037
+
 ## Credits
 
 *This project was completed as part of the **SE3508 Introduction to Artificial Intelligence** course,
