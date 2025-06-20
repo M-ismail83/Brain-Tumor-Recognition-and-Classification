@@ -19,8 +19,8 @@ class AddProjection(nn.Module):
     def __init__(self, config, model=None, mlp_dim=None):
         super(AddProjection, self).__init__()
         embedding_size = config.embedding_size
-        self.backbone = default(model, torchvision.models.mobilenet_v2(weights=None, num_classes=config.embedding_size))
-        mlp_dim = default(mlp_dim, self.backbone.classifier[1].in_features)
+        self.backbone = default(model, torchvision.models.resnet18(weights=None, num_classes=config.embedding_size))
+        mlp_dim = default(mlp_dim, self.backbone.fc.in_features)
         print('Dim MLP input: ', mlp_dim)
         self.backbone.classifier = nn.Identity()
 

@@ -45,7 +45,7 @@ if __name__ == "__main__":
     reproducibility(train_config)
     save_name = filename + ".ckpt"
 
-    model = SimCLR_pl(train_config, model=mobilenet_v2(weights=None), feat_dim=mobilenet_v2(weights=None).classifier[1].in_features)
+    model = SimCLR_pl(train_config, model=resnet18(weights=None), feat_dim=resnet18(weights=None).fc.in_features)
 
     data_loader = get_data_from_path("newset", 224, 20)
 

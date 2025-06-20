@@ -159,7 +159,7 @@ if __name__ == "__main__":
 
         # Target layer path now refers to layers within backbone_for_gradcam
         # (which is now self.backbone inside GradCamWrapperModel)
-        target_layers = [grad_cam_model.backbone.features[-1][0]]
+        target_layers = [grad_cam_model.backbone.layer4[-1].conv2]
         # As an alternative, you could also try the whole block again if conv2 doesn't work with grads enabled:
         # target_layers = [grad_cam_model.backbone.layer4[-1]]
 
