@@ -39,3 +39,52 @@ Brain-Tumor-MRI-Dataset/
 Due to project constraints, **only a subset of the dataset was used** (approximately 150–200 images total). This limited-data setup simulates a **few-shot learning environment**, suitable for self-supervised learning approaches like **SimCLR**.
 
 ## Result and Comparison
+
+Despite being trained with a limited dataset of only ~150–200 images and with pretrained=False enforced, our SimCLR-based model demonstrates promising results in both classification accuracy and visual interpretability.
+
+### Confusion Matrices
+
+- Resnet18 Model:
+![ResNet18](Conclusion_Datas/Resnet18/confusion_matrix_lr.png)
+
+- DenseNet121 Model:
+![DenseNet121](Conclusion_Datas/DenseNet121/confusion_matrix_lr.png)
+
+- MobileNet-V2 Model:
+![MobileNet-V2](Conclusion_Datas/MobileNet_V2/confusion_matrix_lr.png)
+
+### Grad-Cam Images
+
+- Resnet18 Model:
+![Resnet18](Conclusion_Datas/Resnet18/grad_cam_img_2_true_glioma_pred_glioma.png)
+
+- DenseNet121 Model:
+![DenseNet121](Conclusion_Datas/DenseNet121/grad_cam_img_0_true_glioma_pred_pituitary.png)
+
+- MobileNet-V2 Model:
+![MobileNet-V2](Conclusion_Datas/MobileNet_V2/grad_cam_img_0_true_glioma_pred_meningioma.png)
+
+### Loss/Epoch Graphs
+
+- Resnet18 Model:
+![Resnet18](Conclusion_Datas/Resnet18/Ekran%20görüntüsü%202025-05-23%20134515.png)
+- DenseNet121 Model:
+![DenseNet121](Conclusion_Datas/DenseNet121/Ekran%20görüntüsü%202025-06-20%20165331.png)
+- MobileNet-V2 Model:
+![MobileNet-V2](Conclusion_Datas/MobileNet_V2/Ekran%20görüntüsü%202025-06-20%20164943.png)
+
+## Conclusion
+
+As we can see in the graphs and images, more complicated models like DenseNet121 and MobileNet-V2 performed worse compared to the Resnet18 model.
+The main reason for that can be simplified to having more layers therefore more overfitting during the training process.
+The partial success of ResNet18 model shows that using SimCLR with 120 training images plus training a classifier fit to our classes with 10 images per class can be useful but there is still room for more improvement.
+
+## Credits
+
+*This project was completed as part of the **SE3508 Introduction to Artificial Intelligence** course,
+instructed by Dr. Selim Yılmaz, Department of Software Engineering at Muğla Sıtkı Koçman
+University, 2025.*
+
+*🚫 **Note**: This repository **must not be used by students in the same faculty** in future years—whether
+partially or fully—as their own submission. Any form of code reuse without proper modification and
+original contribution will be considered by the instructor **a violation of academic integrity policies.***

@@ -53,7 +53,8 @@ def load_backbone_from_checkpoint(checkpoint_path, device):
         config=config,
         model=base_model_structure,
         feat_dim=base_model_structure.fc.in_features,
-        map_location=device
+        map_location=device,
+        strict=False
     )
 
     backbone = simclr_system.model.backbone
@@ -84,7 +85,7 @@ if __name__ == "__main__":
     device_name = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using: {device_name}")
 
-    checkpoint_path = "saved_models/SimCLR_MobileNet-V2_Adam.ckpt"
+    checkpoint_path = "saved_models/SimCLR_Resnet18_Adam.ckpt"
     labeled_training_set = "evalData/Eval_Training"
     labeled_test_set = "evalData/Eval_Testing"
     batch_size = 21
@@ -110,7 +111,7 @@ if __name__ == "__main__":
 
     scaler = StandardScaler()
     x_train_features = scaler.fit_transform(x_train_features)
-    x_test_features = scaler.fit_transform(x_test_features)
+    x_test_features = scaler.transform(x_test_features)
 
     classifier = LogisticRegression(random_state=0, C=0.1, max_iter=1000, solver='liblinear')
     classifier.fit(x_train_features, y_train_labels)
@@ -313,7 +314,7 @@ if __name__ == "__main__":
                 plt.yticks(rotation=0, fontsize=10)
                 plt.tight_layout()  # Adjust layout to prevent labels from overlapping
 
-                cm_filename = "confusion_matrix_lr.png"
+                cm_filename = "Conclusion_Datas/Resnet18/confusion_matrix_lr.png"
                 plt.savefig(cm_filename)
                 print(f"Confusion matrix saved to {cm_filename}")
                 plt.show()  # Show plot interactively
